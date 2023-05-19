@@ -1,23 +1,20 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { CardComponent } from './components/Card';
 
 function App() {
+  const [pokemonid, setPokemonid] = useState(1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <CardComponent pokemonid={pokemonid} />
+      <button
+        onClick={() => {
+          setPokemonid(pokemonid + 1);
+        }}
+      >
+        Next
+      </button>
     </div>
   );
 }
